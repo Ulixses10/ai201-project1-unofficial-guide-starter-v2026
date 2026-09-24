@@ -14,4 +14,3 @@ ai_grading_N.md that names this starter, in the same change.
 Do not re-create this repo by copying files into a fresh one. That rewrites every
 hash and the baseline then matches nothing, failing open for every student. If a
 copy is ever needed, mirror-push so the hashes survive.
-test
