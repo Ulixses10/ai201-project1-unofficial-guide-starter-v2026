@@ -1,6 +1,6 @@
 # The Unofficial Guide
 
-<!-- Replace this line with your name and which corpus you picked. -->
+<!-- Ulises Jaimez Mendoza | Corpus: advice_threads -->
 
 > **This file is your submission.** Fill it in as you go — most sections get
 > written during the milestone that produces them, not at the end.
@@ -21,9 +21,7 @@
 
 ## What This Does
 
-<!-- Three or four sentences. Which corpus you picked, and the kinds of
-     questions your system answers. Write it for someone who has never seen
-     this repo.
+<!--  I picked the advice_threads corpus and this section contains          questions based on real world advice from commuting, school related  questions, and outside life questions (laundry, meal planning, etc...). This system replies to these questions with a few different answers which helps gives you a better idea on whatever your question is. 
 
      Milestone 5. -->
 
