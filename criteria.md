@@ -23,8 +23,7 @@ For at least 4 of my 5 test questions, the retrieved chunks include one that
 contains the answer.
 
 **Why this target:**
-<!-- e.g. "One of my questions is about a topic only two documents mention, so
-     I expect that one to be hard." -->
+I expect question 5 to be the hardest out of the 5 since when it comes to extending your deadline there is many different factors from asking permission before the deadline or simply not asking for permission and also sickness excuse. There is many different factors here so the system may respond incorrectly 
 
 ---
 
@@ -33,8 +32,8 @@ contains the answer.
 Every answer the system produces names at least one source document.
 
 **Why this target:**
-<!-- Why all five and not four? What about your setup makes that achievable —
-     or what would have to go wrong for it not to be? -->
+my setup makes this achievable because all the information in the questions are coming directly from the threads document which contain the thread question and the replies. This allows the system to answer the question since the documents provide the information and in the addition this system document are all lable for example thread_bike_commute.txt which allows the app  to identify which document it was used for.
+ 
 
 ---
 
@@ -44,30 +43,27 @@ When I ask a question my documents clearly don't cover, the relevance gate
 stops it and the system returns "I don't have enough information about that" —
 in at least 4 of 5 tries.
 
-<!-- The five questions are the ones in `OUT_OF_SCOPE` at the bottom of
+
+The five questions are the ones in `OUT_OF_SCOPE` at the bottom of
      `questions.py`, and `run_eval.py` puts them through the gate and writes
      what happened into your run log. Swap them for your own if you'd rather —
-     just keep five of them, or the "4 of 5" above has nothing to be 4 of. -->
+     just keep five of them, or the "4 of 5" above has nothing to be 4 of.
 
 **Why this target:**
-<!-- What did your distances look like when you set the cutoff in Milestone 4?
-     Was there a clean gap, or did the two groups overlap? -->
+What did your distances look like when you set the cutoff in Milestone 4?
+     Was there a clean gap, or did the two groups overlap? 
+     Answer: The distance of the out of scope question was a big difference compared to the 5 question that was in scope and it would always go above the cut off which the cut off distance was 0.7. For example the out of scope ranged from 0.8077 to 0.8966.
+     
 
 ---
 
 ## 4. Something about your chunks
 
-<!-- YOU WRITE THIS ONE.
-
-     How would you know if your chunks were the right size? Name something
-     countable or observable.
-
-     Examples of the right shape — don't copy these, they should come from
-     what you actually saw in Milestone 3:
-       - "At least 4 of 5 sampled chunks read as a complete thought, with no
-          sentence cut in half at either end."
-       - "No chunk is shorter than 200 characters, since anything below that
-          in my corpus turned out to be a heading with no content under it." -->
+YOU WRITE THIS ONE.
+     When i'm inspecting the 5 chunks I would expect atleast 4 should contain an idea that can help answer the question about the thread. If the starting chunk contains a small amount of character chunks such as 200 characters or below I can expect atleast 1 of the 5 chunks to not answer the question correctly. 
+     
+     
+     
 
 
 
@@ -79,13 +75,9 @@ in at least 4 of 5 tries.
 
 ## 5. Your choice
 
-<!-- YOU WRITE THIS ONE TOO.
+YOU WRITE THIS ONE TOO.
 
-     Pick something you actually care about getting right. It could be about
-     speed, about refusals, about a particular kind of question your corpus
-     handles badly, about source attribution being correct rather than merely
-     present — anything, as long as it names a number or an observable
-     outcome. -->
+     I care about how accurate something is and how close I can get something to perfection. For example within this project I would want my system to understand atleast 4 out of 5 questions and correctly print out the expected response. I know there can be some errors here and there, but I would hope for the system to get it close to right. 
 
 
 

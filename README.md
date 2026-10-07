@@ -21,9 +21,9 @@
 
 ## What This Does
 
-<!--  I picked the advice_threads corpus and this section contains          questions based on real world advice from commuting, school related  questions, and outside life questions (laundry, meal planning, etc...). This system replies to these questions with a few different answers which helps gives you a better idea on whatever your question is. 
+ I picked the advice_threads corpus and this section contains          questions based on real world advice from commuting, school related  questions, and outside life questions (laundry, meal planning, etc...). This system replies to these questions with a few different answers which helps gives you a better idea on whatever your question is. 
 
-     Milestone 5. -->
+     Milestone 5.
 
 ## Chunking Strategy
 
@@ -51,29 +51,45 @@
 
      Milestone 3. -->
 
-**Chunk 1** — source: `` — produced by: ``
+**Chunk 1** — source: `thread_bike_commute.text#0` — produced by: `chunker.py::split_documents`
 
-```
-```
+```THREAD: Is a bike worth it for a 20 minute walk commute?
 
-**Chunk 2** — source: `` — produced by: ``
-
-```
+ --reply 1 (14 votes) ---
+Yeah. Cuts an 18 minute walk to about 6. The thing nobody mentions is storage — covered bike parking exists at three buildings and is full by 9am at all three.
 ```
 
-**Chunk 3** — source: `` — produced by: ``
+**Chunk 2** — source: `thread_firstgen.text#1` — produced by: `chunker.py::split_documents`
 
-```
-```
+```THREAD: Anything specific for first-generation students?
 
-**Chunk 4** — source: `` — produced by: ``
-
-```
+ --reply 2 (41 votes) ---
+The thing I'd say: the unwritten rules are the hard part, not the coursework. Ask about the unwritten rules explicitly. People are happy to explain them and nobody volunteers them.
 ```
 
-**Chunk 5** — source: `` — produced by: ``
+**Chunk 3** — source: `thread_laptop_specs.txt#2` — produced by: `chunker.py::split_documents`
 
+```THREAD: How much laptop do I actually need for CS courses?
+
+ --reply 3 (12 votes) ---
+I did two years on an 8GB machine and it was fine until the last project, at which point it very much wasn't. 16 is the answer.
 ```
+
+**Chunk 4** — source: `thread_parking.txt#1` — produced by: `chunker.py::split_documents`
+
+```======================================================================
+THREAD: Worth getting a parking permit?
+
+ --reply 2 (21 votes) ---
+Street parking on Verrill is legal and free and unmarked, which is why half the upper years do it.
+```
+
+**Chunk 5** — source: `thread_sleep_schedule.txt#1` — produced by: `chunker.py::split_documents`
+
+```THREAD: Everyone says fix your sleep. Does it actually matter?
+
+ --reply 2 (37 votes) ---
+The library being open until 2am is a trap. It's a resource, not a schedule.
 ```
 
 ## Sample Answer
@@ -82,37 +98,47 @@
      visible. Milestone 4. -->
 
 **Question:**
-
+Does the Campus offer free bike registration?
 **Answer:**
 
-```
+``` Yes, the campus does free bike registration.
+Source: thread_bike_commute.txt
+Sources retrieved: thread_bike_commute.txt, thread_commuting.txt, thread_first_year_regret.txt, thread_laundry_timing.txt
 ```
 
 **My relevance cutoff:**
 
-<!-- The number you set in config.py, and how you got there.
+ The number you set in config.py, and how you got there.
 
      You ran five questions your corpus covers and the five in OUT_OF_SCOPE
      that it clearly doesn't, and wrote down the best distance for each. What
      did those two groups look like? Where was the gap? Put the actual numbers
      here — the table below wants all ten rows.
+     Answer: After running the five questions my corpus cover and the five in the out of scope question I can say that for the in corpuse distance the highest is 0.6141 and the lowest distance was 0.2657. While the unrelated out of scope question started at 0.807. The groups didn't look alike since there is a big distance gap and only 1 question from the 5 in scope question was close to the distance of the out of scope distance. I set the cap to 0.7 because of the five question about the threads the distance was from 0.2657 to 0.6141.
 
-     Milestone 4. -->
+     Milestone 4. 
 
 | Question | In corpus? | Best distance |
 |---|---|---|
 |  |  |  |
+| Question | In corpus? | Best distance |
+|---|---|---:|
+| Does the campus offer free bike registration? | Yes | 0.2657 |
+| How many times can I use my pass/fail option per year? | Yes | 0.2755 |
+| When can I use my pass/fail option? | Yes | 0.2679 |
+| Who handles documented illness? | Yes | 0.6141 |
+| How much extra time does someone get if they ask before the deadline? | Yes | 0.3841 |
+| What is the capital of Mongolia? | No | 0.8935 |
+| How do I change the oil in a diesel engine? | No | 0.8966 |
+| Who won the 1994 World Cup? | No | 0.8916 |
+| What is the recommended dosage of ibuprofen for a headache? | No | 0.8077 |
+| How do I write a for loop in Rust? | No | 0.8371 |
 
 ## How I Used AI
 
-<!-- Two specific moments. For each: what you asked for, what came back, and
-     what you changed about it.
+I was having trouble with the chunker help where I asked step by step helped. I needed help understanding the code which I had to use AI and then I had it explain what I was doing and what these numbers mean.
 
-     "I asked Claude to write the chunking function from my notes. It ignored
-     the overlap, so I added that myself" is the level of detail we're after.
-     "I used AI to help me code" is not.
-
-     Milestone 5. -->
+     Milestone 5. 
 
 **1.**
 

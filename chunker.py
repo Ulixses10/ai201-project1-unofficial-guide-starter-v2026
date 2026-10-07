@@ -97,7 +97,23 @@ def split_documents(documents: list[Document]) -> list[Chunk]:
       - Would splitting on paragraph breaks keep more thoughts intact than
         splitting on a character count?
     """
-    return fallback_split(documents)
+    chunks: list[Chunk] = []
+    for doc in documents:
+        parts = doc.text.split("--- reply ")
+        thread = parts[0].strip()
+        for index, reply in enumerate(parts[1:]):
+            reply =reply.strip()
+            if not reply: 
+                continue
+            chunks.append(
+                Chunk(
+                    text=f"{thread}\n\n --reply {reply}",
+                    source =doc.source,
+                    index=index,
+                    produced_by="chunker.py::split_documents",
+                )
+            )
+    return chunks
 
 
 def describe(chunks: list[Chunk]) -> str:
