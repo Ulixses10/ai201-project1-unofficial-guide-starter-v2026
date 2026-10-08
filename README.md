@@ -159,6 +159,8 @@ I was having trouble with the chunker help where I asked step by step helped. I 
 
 ## Run Log — Before
 
+
+
 <!-- Your five criteria, three runs each. `python run_eval.py --label before`
      runs the questions, puts the OUT_OF_SCOPE ones through the gate, and
      writes it all into results/ for you. Targets come from criteria.md; the
@@ -171,11 +173,53 @@ I was having trouble with the chunker help where I asked step by step helped. I 
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 |  5/5| 5/5 | 5/5 | MET  |
+| 2. Every answer names a source | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 | MET|
+| 4. Sampled chunks contain an answerable idea| 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 5. Corrected expected answers| 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+
+ 
+
+### Evidence for criteria 1 and 4 — retrieved chunk
+
+Source: `thread_bike_commute.txt`  
+Chunk produced by: `chunker.py::split_documents`  
+Retrieved by: `store.py::search`
+
+```text
+[from thread_bike_commute.txt]
+THREAD: Is a bike worth it for a 20 minute walk commute?
+
+ --reply 4 (5 votes) ---
+If you do get one, the campus does free registration and it's the only reason I got mine back after it was taken.
+```
+
+### Does the campus offer free bike registration? — run 1 (Evidence for 2 and 5)
+
+- Best distance: 0.2657 (passed the gate)
+- Sources retrieved: thread_bike_commute.txt, thread_commuting.txt, thread_first_year_regret.txt, thread_laundry_timing.txt
+
+```
+Yes, the campus does free bike registration. 
+
+Source: thread_bike_commute.txt
+```
+## The relevance gate on out-of-corpus questions (Evidence for 3)
+
+Produced by `run_eval.py::check_out_of_scope`, cutoff 0.7. Refused 5 of 5.
+
+Retrieval is deterministic and the gate is a comparison against a
+fixed number, so these do not vary between runs — one pass over the
+list is the whole measurement.
+
+| Out-of-scope question | Best distance | Gate |
+|---|---|---|
+| What is the capital of Mongolia? | 0.894 | refused |
+| How do I change the oil in a diesel engine? | 0.897 | refused |
+| Who won the 1994 World Cup? | 0.892 | refused |
+| What is the recommended dosage of ibuprofen for a headache? | 0.808 | refused |
+| How do I write a for loop in Rust? | 0.837 | refused |
 
 <!-- Underneath, paste the REAL output for each criterion from one of your
      runs — the actual text your system produced, not a description of it.
@@ -194,11 +238,11 @@ I was having trouble with the chunker help where I asked step by step helped. I 
 
 | # | Criterion | Verdict | How I decided |
 |---|---|---|---|
-| 1 |  |  |  |
-| 2 |  |  |  |
-| 3 |  |  |  |
-| 4 |  |  |  |
-| 5 |  |  |  |
+| 1 | Retrieved chunks contain the answer | MET | For each of the five questions, I checked the response and also the distance of each output. All of the five outputs gave the correct response to each question and used the correct documents. |
+| 2 | The final answer names atleast one source file | MET | Every answer in all three runs named atleast one source file.|
+| 3 | The gate doesn't allow unrelated questions | MET | The gate didn't allow unrelated questions at the respected cutoff of 0.7 |
+| 4 | The chunkes made sense towards the question | MET | Each of the five chunks contained a fact that could help answer a specific question. |
+| 5 | The final answer was the expected output | MET | All five answers included the expected facts in each run. |
 
 ## Diagnoses
 
