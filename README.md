@@ -264,6 +264,8 @@ list is the whole measurement.
 
      Milestone 3. -->
 
+     None of the criteria missed and all five scored a 5/5 in each run. I wouldn't necessarly say my targets were low. I would say that a few of my questions mightve been easy to get but I did add tricky questions that could result into a failure but my target still hit. I would tighten criteria 5 because I care about the correct answers and feel like thats the end goal the most important thing.
+
 ## The Improvement
 
 **What I changed:**
