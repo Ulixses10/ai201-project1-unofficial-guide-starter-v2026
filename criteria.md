@@ -59,7 +59,7 @@ What did your distances look like when you set the cutoff in Milestone 4?
 
 ## 4. Something about your chunks
 
-YOU WRITE THIS ONE.
+
      When i'm inspecting the 5 chunks I would expect atleast 4 should contain an idea that can help answer the question about the thread. If the starting chunk contains a small amount of character chunks such as 200 characters or below I can expect atleast 1 of the 5 chunks to not answer the question correctly. 
      
      
