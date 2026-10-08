@@ -269,8 +269,9 @@ list is the whole measurement.
 ## The Improvement
 
 **What I changed:**
-
+ I changed the top-k set to 3 instead of 5
 **Why I picked it:**
+ some retrieved chunks were unrelated to the question
 
 <!-- Connect it to a specific diagnosis above in one sentence. If you can't,
      you picked a fix because it sounded impressive. -->
@@ -282,13 +283,14 @@ list is the whole measurement.
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 2. Every answer names a source | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 4. Sampled chunks contain an answerable idea |4 of 5| 5/5| 5/5 | 5/5 | MET|
+| 5. Correct expected answers | 4 of 5 | 5/5| 5/5| 5/5 | MET |
 
 **Did it help?**
+     Nothing changed at all since the scores were alread a 5/5, but the model received a fewer unrelated chunks this time. For example the pass/fail answer source list went directly to thread_pass_fail.txt. Not all of them went directly to one source so there is still some improvement.
 
 <!-- Say plainly whether it did, and how you know. If it made things worse,
      say that — a change that backfired, honestly reported, earns full credit
@@ -298,6 +300,7 @@ list is the whole measurement.
      Milestone 4. -->
 
 ## What's Still Broken
+     None of my five criteria were missed after the change. There were still some unrelated threads for a few questions. There is still some improvement I can do to prevent unreleated threads appearing.
 
 <!-- For each criterion still missed after your fix: what you'd do about it,
      and why you stopped where you did.
@@ -308,7 +311,7 @@ list is the whole measurement.
      Milestone 5. -->
 
 ## What I'd Do Differently
-
+      I would make criterion 2 more strict. I originally had it so it would only check to see if one source appeared with every answer. Next time I would requrire all five answers to name a source that contains relevance to the question .
 <!-- Knowing what you know now — which of your five criteria would you write
      differently, and why?
 
